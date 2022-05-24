@@ -1,8 +1,21 @@
 *{
     border: 0;
     margin: 0;
-   /* outline: 4px red solid;*/
+   /* outline: 4px red solid; */
 }
+
+body{
+    height: 100%;
+        font-family: Roboto, sans-serif;
+        font-size: .8rem;
+        font-weight: 100;
+        color: rgba(0, 0, 0, 1);
+        text-transform: none;
+        font-style: normal;
+        text-decoration: none;
+        line-height: 2em;
+        letter-spacing: px;
+    }
 
 .layout{
     margin-left: 150px;
@@ -51,4 +64,36 @@ a{
 a:visited{
     color: white;
     text-decoration: none;
+}
+
+.footer{
+   position: absolute;
+   
+   bottom: 22px;
+   align-items: center;
+}
+
+.footer-content {
+      display: flex;
+      width: 100%;
+   align-items: center;
+    
+}
+
+.footer-content p{
+   margin: 0px 20px 0px 20px;
+}
+
+article{
+    width: 400px;
+    margin: 0 auto;
+}
+.content img{
+     margin: 30px;
+       
+}
+
+.content p {
+    font-size: 2em;
+    padding: 40px;
 }
