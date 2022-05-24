@@ -1,0 +1,54 @@
+*{
+    border: 0;
+    margin: 0;
+   /* outline: 4px red solid;*/
+}
+
+.layout{
+    margin-left: 150px;
+    margin-right: 150px;
+    margin-top: 70px;
+    margin-bottom: 70px;
+    background-color: bisque;
+    height: calc( 100vh - 120px);
+    border-radius: 50px;
+}
+
+.menu {
+     
+    padding: 70px 0px 70px 0px;
+    display: flex;
+
+}
+.menu-content{
+    display: flex;
+    width: 100%;
+    text-decoration: none;
+    list-style: none;
+    flex-direction: row;
+    justify-content:  flex-end;
+    background: tomato;
+    
+}
+
+.menu-item{
+    background: tomato;
+    padding: 5px;
+    cursor: pointer;
+    height: 50px;
+    margin: 5px;
+    line-height: 50px;
+    color: white;
+    font-weight: bold;
+    font-size: 1.7em;
+    text-align: center;
+}
+
+a{
+    text-decoration: none;
+    color: white;
+}
+a:visited{
+    color: white;
+    text-decoration: none;
+}
