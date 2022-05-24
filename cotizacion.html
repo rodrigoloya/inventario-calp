@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,6 +8,7 @@
     <title>Negocio</title>
     <link rel="stylesheet" href="css/main.css">
 </head>
+
 <body>
     <div class="layout">
 
@@ -14,15 +16,53 @@
             <nav class="menu">
                 <ul class="menu-content">
                     <li class="menu-item"><a href="./index.html">Negocio</a></li>
-                    <li class="menu-item"><a href="./catalogo.html" >Catálogo</a> </li>
-                    <li class="menu-item"><a href="./cotizacion.html" >Cotización</a></li>
-                    <li class="menu-item"><a href="./contacto.html" >Contacto</a></li>
+                    <li class="menu-item"><a href="./catalogo.html">Catálogo</a> </li>
+                    <li class="menu-item"><a href="./cotizacion.html">Cotización</a></li>
+                    <li class="menu-item"><a href="./contacto.html">Contacto</a></li>
                     <li class="menu-item"><a href="./admin/login.html">Administración</a></li>
                 </ul>
             </nav>
         </header>
 
         <div class="content">
+            <!--
+o Título de la página con la etiqueta H2
+o Un texto contenido en un párrafo, el cual indique la finalidad del
+formulario.
+o El formulario debe contar con los siguientes campos para ingreso de
+información.
+▪ Nombre completo.
+▪ Edad.
+▪ Correo electrónico.
+▪ Entrada tipo área de texto para ingresar la solicitud.
+▪ Agregar los botones para cancelar y enviar formulario.
+Nota. Para los inputs debes usar los atributos de HTML5 para
+diferenciar los campos tipo texto, tipo entero o tipo correo
+electrónico.
+- La página de contacto d-->
+            <h2>Solicitud de Cotizacion</h2>
+            <p class="formulario-cotizacion">
+                Favor de llenar el siguiente formulario
+            </p>
+            <div class="formulario-cotizacion">
+                <form action="cotizacion.php" method="post">
+                    <span class="requerido">*</span> <span>Nombre completo:</span>
+                    <input type="text" name="nombre" id="nombre" placeholder="Nombre completo">
+                    <span class="requerido">*</span> <span>Edad:</span>
+                    <input type="number" name="edad" id="edad" placeholder="Edad">
+                    <br>
+                    <span class="requerido">*</span> <span>Email:</span>
+                    <input type="email" name="email" id="email" placeholder="your@email.com">
+                    <br>
+                    <span class="requerido">*</span> <span>Detalles de la solicitud:</span>
+                    <br>
+                    <textarea name="solicitud" id="solicitud" cols="70" rows="10"></textarea>
+                    <br>
+                    <button id="cancelar" type="reset">Cancelar</button>
+                      
+                    <button type="submit" id="enviar">Enviar Solicitud</button>
+                </form>
+            </div>
 
         </div>
 
@@ -35,4 +75,5 @@
         </footer>
     </div>
 </body>
+
 </html>

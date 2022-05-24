@@ -1,7 +1,7 @@
 *{
     border: 0;
     margin: 0;
-   /* outline: 4px red solid; */
+    /*outline: 4px red solid; */
 }
 
 body{
@@ -16,6 +16,12 @@ body{
         line-height: 2em;
         letter-spacing: px;
     }
+
+h2{
+    font-size: 3em;
+    padding-bottom: 20px;
+    
+}
 
 .layout{
     margin-left: 150px;
@@ -88,6 +94,11 @@ article{
     width: 400px;
     margin: 0 auto;
 }
+
+.content{
+    padding-left: 50px;
+    padding-right: 50px;
+}
 .content img{
      margin: 30px;
        
@@ -96,4 +107,86 @@ article{
 .content p {
     font-size: 2em;
     padding: 40px;
+}
+
+ 
+
+.tabla-catalogo{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    
+}
+
+.tabla-encabezado{
+    display: grid;
+    font-size: 1.5em;    
+    justify-content: left;
+    background-color: tomato;
+}
+
+.row{
+    display: grid;
+    font-size: 1.1em;
+}
+
+.tabla-catalogo .right{
+    justify-content: right;
+}
+
+
+.formulario-cotizacion span{    
+    font-size: 1.2em;
+    vertical-align: middle;
+}
+
+.formulario-cotizacion span.requerido{    
+    color: red;
+}
+
+.formulario-cotizacion input{
+    height: 40px;
+    margin: 15px 5px;
+    font-size: 1.2em;
+
+}
+
+#nombre{
+    width: 260px;
+}
+#edad{
+    width: 75px;
+}
+#email{
+    width: 480px;
+}
+#solicitud{
+    font-size: 1.2em;
+}
+#enviar{
+    height: 50px;
+    width: 200px;
+    border-radius: 70px;
+    background-color: rgb(24, 172, 80);
+    float: right;
+}
+#cancelar{
+    color: white;
+    height: 50px;
+    width: 100px;
+    border-radius: 70px;
+    background-color: rgb(179, 29, 29);
+}
+
+#mapa-img{
+    width: 600px;
+}
+
+.datos-contacto{
+    list-style: none;
+    font-size: 1.2em;
+
+}
+.mapa{
+    width: 600px;
+    margin: 0 auto;
 }
