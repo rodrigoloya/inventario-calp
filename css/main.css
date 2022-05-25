@@ -59,19 +59,19 @@ h2{
     line-height: 25px;
     color: white;
     font-weight: bold;
-    font-size: 1.7em;
-    text-align: center;
+    font-size: 1.6em;
+    text-align: center;     
 
 }
 
-a{
+.menu-item a{
     text-decoration: none;
     color: white;
 }
-a:visited{
-    color: white;
-    text-decoration: none;
+.menu-item a:hover, .menu-item a:focus {
+    color: rgb(184, 8, 8);
 }
+
 
 .footer{
    position: absolute;
@@ -123,6 +123,7 @@ article{
     font-size: 1.5em;    
     justify-content: left;
     background-color: tomato;
+    font-weight: 700;
 }
 
 .row{
@@ -150,6 +151,17 @@ article{
     font-size: 1.2em;
 
 }
+.datos-contacto{
+    list-style: none;
+    font-size: 1.2em;
+
+}
+
+.mapa{
+    width: 400px;
+    margin: 0 auto;
+}
+
 
 #nombre{
     width: 260px;
@@ -171,6 +183,11 @@ article{
     float: right;
     color: white;
 }
+
+#enviar:hover, #enviar:focus{
+    background-color: rgb(70, 230, 131);
+}
+
 #cancelar{
     color: white;
     height: 50px;
@@ -179,17 +196,12 @@ article{
     background-color: rgb(179, 29, 29);
 }
 
+#cancelar:hover, #cancelar:focus{
+    background-color: rgb(247, 56, 49);
+}
+
 #mapa-img{
     height: 300px;
 }
 
-.datos-contacto{
-    list-style: none;
-    font-size: 1.2em;
-
-}
-.mapa{
-    width: 400px;
-    margin: 0 auto;
-}
 

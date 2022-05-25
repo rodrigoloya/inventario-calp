@@ -51,11 +51,12 @@
     justify-content: right;
 }
 
-.cell-link{
+a.cell-link{
     color: rgb(255, 96, 4);
     font-style: italic;
     font-weight: 600;
 }
+ 
 
 .agregar-producto{
     display: flex;
@@ -88,6 +89,9 @@
     color: white;
     cursor: pointer;
 }
+#ingresar:hover, #ingresar:focus{
+    background-color: rgb(70, 230, 131);
+}
 
 #btnAgregarProducto{
     height: 50px;
@@ -97,5 +101,9 @@
     float: right;
     color: white;
     cursor: pointer;
+}
+
+#btnAgregarProducto:hover, #btnAgregarProducto:focus{
+    background-color: rgb(70, 230, 131);
 }
 
