@@ -1,29 +1,46 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=900, initial-scale=1.0">
     <title>Administracion</title>
-    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="../css/main.css">
 </head>
+
 <body>
     <div class="layout">
 
         <header>
             <nav class="menu">
                 <ul class="menu-content">
-                    <li class="menu-item"><a href="./index.html">Negocio</a></li>
-                    <li class="menu-item"><a href="./catalogo.html" >Catálogo</a> </li>
-                    <li class="menu-item"><a href="./cotizacion.html" >Cotización</a></li>
-                    <li class="menu-item"><a href="./contacto.html" >Contacto</a></li>
-                    <li class="menu-item"><a href="./admin/login.html">Administración</a></li>
+                    <li class="menu-item"><a href="../admin/productos.html">Productos por Vender</a> </li>
+                    <li class="menu-item"><a href="../admin/cotizaciones.html">Consultar Solicitudes</a></li>
+                    <li class="menu-item"><a href="../index.html">Cerrar Session</a></li>
                 </ul>
             </nav>
         </header>
 
         <div class="content">
-
+            <!--
+o Productos por vender
+o Consultar solicitudes
+o Cerrar sesión (debe tener un enlace a la página inicial de Negocio)
+- La página de acceso a usuarios debe contener un formulario con los
+siguientes nombres y campos de entrada:
+o Usuario
+o Contraseña
+o Botón de Iniciar sesión
+-->
+            <h2>Inicio de sesión</h2>
+            <span>Usuario:</span>
+            <input type="text" name="usuario" id="usuario" placeholder="Usuario">
+            <br>
+            <span>Contrase;a:</span>
+            <input type="password" name="password" id="password" placeholder="Password">
+            <br>
+            <button type="submit" id="Ingresar">Iniciar sesión</button>
         </div>
 
         <footer class="footer">
@@ -35,4 +52,5 @@
         </footer>
     </div>
 </body>
+
 </html>
