@@ -7,14 +7,14 @@
 body{
     height: 100%;
         font-family: Roboto, sans-serif;
-        font-size: .8rem;
+        font-size: 1rem;
         font-weight: 100;
         color: rgba(0, 0, 0, 1);
         text-transform: none;
         font-style: normal;
         text-decoration: none;
         line-height: 2em;
-        letter-spacing: px;
+        letter-spacing: 1px;
     }
 
 h2{
@@ -24,8 +24,8 @@ h2{
 }
 
 .layout{
-    margin-left: 150px;
-    margin-right: 150px;
+    margin-left: 80px;
+    margin-right: 80px;
     margin-top: 70px;
     margin-bottom: 70px;
     background-color: bisque;
@@ -56,11 +56,12 @@ h2{
     cursor: pointer;
     height: 50px;
     margin: 5px;
-    line-height: 50px;
+    line-height: 25px;
     color: white;
     font-weight: bold;
     font-size: 1.7em;
     text-align: center;
+
 }
 
 a{
@@ -168,6 +169,7 @@ article{
     border-radius: 70px;
     background-color: rgb(24, 172, 80);
     float: right;
+    color: white;
 }
 #cancelar{
     color: white;
@@ -178,7 +180,7 @@ article{
 }
 
 #mapa-img{
-    height: 330px;
+    height: 300px;
 }
 
 .datos-contacto{
@@ -190,3 +192,4 @@ article{
     width: 400px;
     margin: 0 auto;
 }
+

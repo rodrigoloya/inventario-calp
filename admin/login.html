@@ -7,6 +7,7 @@
     <meta name="viewport" content="width=900, initial-scale=1.0">
     <title>Administracion</title>
     <link rel="stylesheet" href="../css/main.css">
+    <link rel="stylesheet" href="../css/admin.css">
 </head>
 
 <body>
@@ -33,14 +34,19 @@ o Usuario
 o Contraseña
 o Botón de Iniciar sesión
 -->
+
+            <div class="login-content">
             <h2>Inicio de sesión</h2>
+            <form action="login.php" method="post">
             <span>Usuario:</span>
             <input type="text" name="usuario" id="usuario" placeholder="Usuario">
             <br>
             <span>Contrase;a:</span>
             <input type="password" name="password" id="password" placeholder="Password">
             <br>
-            <button type="submit" id="Ingresar">Iniciar sesión</button>
+            <button type="submit" id="ingresar">Iniciar sesión</button>
+            </form>
+           </div>
         </div>
 
         <footer class="footer">
