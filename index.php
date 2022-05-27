@@ -5,8 +5,9 @@
   <title>Prueba de PHP</title>
  </head>
  <body>
- <?php echo '<p>Hola Mundo</p>'; ?>
-
- <?php phpinfo(); ?>
+ <?php
+    header('Location: ./index.html?new')
+ ?>
+ <?php // phpinfo(); ?>
  </body>
 </html>

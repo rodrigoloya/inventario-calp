@@ -55,11 +55,11 @@
         if ($usuarioValido) {
             print("<h2>Credenciales aceptadas para usuario: $usuario</h2>");
             echo "<br/>";
-            echo "<a href='productos.html' >Continuar</a>";
+            echo "<a  class='btn-continuar'  href='productos.html' >Continuar</a>";
         } else {
             print($msgError);
             echo "<br/>";
-            echo "<a href='login.html' >Login</a>";
+            echo "<a class='btn-continuar'  href='login.html' >Login</a>";
         }
         ?>
 
