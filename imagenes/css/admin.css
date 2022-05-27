@@ -78,17 +78,7 @@ a.cell-link{
     padding: 5px;
 }
 
-.btn-continuar{
-    display: block;
-    height: 40px;
-    width: 200px;
-    border-radius: 70px;
-    background-color: rgb(24, 172, 80);    
-    color: white;
-    cursor: pointer;
-    text-align: center;
-    padding-top: 20px;
-} 
+ 
 
 #ingresar{
     height: 50px;
