@@ -20,7 +20,7 @@ if($_SERVER['REQUEST_METHOD'] === 'POST'){
 
     //Revisar que cuente con caracteres validos el nombre
     //if(!preg_match("/^[a-zA-Z]*$/", $nombre )){
-    if(strlen($nombre)<3)
+    if(strlen($nombre)<3){
         header("Location: ./cotizacion.php?f=char&nombre=$nombre&email=$email&edad=$edad&sol=$solicitud");
         exit();
     }
