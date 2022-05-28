@@ -173,8 +173,8 @@ contener al menos 5 productos o filas).
             <div class="tabla-catalogo">
                 <div class="tabla-encabezado">Clave Producto</div>
                 <div class="tabla-encabezado">Nombre Producto</div>
-                <div class="tabla-encabezado">Descripcion</div>
-                <div class="tabla-encabezado">Presentacion</div>
+                <div class="tabla-encabezado">Descripción</div>
+                <div class="tabla-encabezado">Presentación</div>
                 <div class="tabla-encabezado right">Precio</div>
                 <div class="tabla-encabezado right">Cantidad</div>
                 <?php 
