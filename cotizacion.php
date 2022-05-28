@@ -17,13 +17,25 @@
                 <ul class="menu-content">
                     <li class="menu-item"><a href="./index.html">Negocio</a></li>
                     <li class="menu-item"><a href="./catalogo.html">Catálogo</a> </li>
-                    <li class="menu-item"><a href="./cotizacion.html">Cotización</a></li>
+                    <li class="menu-item"><a href="./cotizacion.php">Cotización</a></li>
                     <li class="menu-item"><a href="./contacto.html">Contacto</a></li>
                     <li class="menu-item"><a href="./admin/login.html">Administración</a></li>
                 </ul>
             </nav>
         </header>
 
+        <?php
+        
+        //Obtener las variables desde el componente
+        if(isset($_GET["f"])){
+            $nombre =   $_GET['nombre'];
+            $email =    $_GET['email'];
+            $edad=      $_GET['edad'];
+            $solicitud =$_GET['solicitud'];
+            $formStatus=$_GET["f"];
+        
+        }
+        ?>
         <div class="content">
             <!--
 o Título de la página con la etiqueta H2
@@ -45,9 +57,9 @@ electrónico.
                 Favor de llenar el siguiente formulario para solicitar una cotización por correo electrónico
             </p>
             <div class="formulario-cotizacion">
-                <form action="cotizacion.php" method="post">
+                <form action="cotizacion.component.php" method="post">
                     <span class="requerido">*</span> <span>Nombre completo:</span>
-                    <input type="text" name="nombre" id="nombre" placeholder="Nombre completo">
+                    <input type="text" name="nombre" id="nombre" placeholder="Nombre completo" value=<?php $nombre ?>>
                     <span class="requerido">*</span> <span>Edad:</span>
                     <input type="number" name="edad" id="edad" placeholder="Edad">
                     <br>
@@ -60,7 +72,7 @@ electrónico.
                     <br>
                     <button id="cancelar" type="reset">Cancelar</button>
                       
-                    <button type="submit" id="enviar">Enviar Solicitud</button>
+                    <button type="submit" name="enviar" id="enviar">Enviar Solicitud</button>
                 </form>
             </div>
 
