@@ -112,7 +112,7 @@
     $lstProductos[6] = new Producto();
     $lstProductos[6]->clave = $iClave++;
     $lstProductos[6]->nombre = "Jabón Zote";
-    $lstProductos[6]->descripcion = "Jabón en pastilla";
+    $lstProductos[6]->descripcion = "Jabon en pastilla";
     $lstProductos[6]->precio = "15.00";
     $lstProductos[6]->cantidad = "895.00";
     $lstProductos[6]->presentacion = "Pieza";
