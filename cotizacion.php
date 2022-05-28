@@ -27,6 +27,11 @@
         <?php
         
         //Obtener las variables desde el componente
+        $nombre =   "";
+        $email =    "";
+        $edad=      "";
+        $solicitud ="";
+        $formStatus="";
         if(isset($_GET["f"])){
             $nombre =   $_GET['nombre'];
             $email =    $_GET['email'];
@@ -57,23 +62,46 @@ electrónico.
                 Favor de llenar el siguiente formulario para solicitar una cotización por correo electrónico
             </p>
             <div class="formulario-cotizacion">
+            <?php
+                    if($formStatus == "success"){
+                        print ("<h3 class='success'>Envio del formulario fue exitoso.</h3>");
+                    }
+                    elseif($formStatus == "char"){
+                        print ("<h3 class='error'>El nombre debe contener al menos 3 letras</h3>");
+                    }
+                    elseif($formStatus == "email"){
+                        print ("<h3 class='error'>El email es invalido, verifique.</h3>");
+                    }
+                    elseif($formStatus == "edad"){
+                        print ("<h3 class='error'>La edad debe ser mínimo una edad de 18 años (mayores de edad) y máximo de 60 años </h3>");
+                    }
+                    elseif($formStatus == "solicitud"){
+                        print ("<h3 class='error'>La solicitud es requerida con minimo 3 caracteres. Verifique</h3>");
+                    }
+                    else{
+                        
+                        print ("<h3 class='error'>Datos incorrectos.$formStatus</h3>");
+                    }
+                    
+                ?>
                 <form action="cotizacion.component.php" method="post">
                     <span class="requerido">*</span> <span>Nombre completo:</span>
-                    <input type="text" name="nombre" id="nombre" placeholder="Nombre completo" value=<?php $nombre ?>>
+                    <?php echo '<input type="text" name="nombre" id="nombre" placeholder="Nombre completo" value="'.$nombre.'">' ?>
                     <span class="requerido">*</span> <span>Edad:</span>
-                    <input type="number" name="edad" id="edad" placeholder="Edad">
+                    <?php echo '<input type="number" name="edad" id="edad" placeholder="Edad" value="'.$edad.'">' ?>
                     <br>
                     <span class="requerido">*</span> <span>Email:</span>
-                    <input type="email" name="email" id="email" placeholder="your@email.com">
+                    <?php echo '<input type="email" name="email" id="email" placeholder="your@email.com" value="'.$email.'">' ?>
                     <br>
                     <span class="requerido">*</span> <span>Detalles de la solicitud:</span>
                     <br>
-                    <textarea name="solicitud" id="solicitud" cols="60" rows="6"></textarea>
+                    <?php echo '<textarea name="solicitud" id="solicitud" cols="60" rows="6" value="'.$solicitud.'"></textarea>' ?>
                     <br>
                     <button id="cancelar" type="reset">Cancelar</button>
                       
                     <button type="submit" name="enviar" id="enviar">Enviar Solicitud</button>
                 </form>
+               
             </div>
 
         </div>

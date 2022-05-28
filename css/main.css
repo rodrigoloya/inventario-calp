@@ -162,6 +162,13 @@ article{
     margin: 0 auto;
 }
 
+.error{
+    color: red;
+}
+
+.success{
+    color: green;
+}
 
 #nombre{
     width: 260px;
