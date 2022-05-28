@@ -11,7 +11,9 @@ if($_SERVER['REQUEST_METHOD'] === 'POST'){
     $solicitud =    $_POST['solicitud'];
     $formSubmit =   $_POST['enviar'];
 
-
+    function checkemail($str) {
+         return (!preg_match("/^([a-z0-9\+_\-]+)(\.[a-z0-9\+_\-]+)*@([a-z0-9\-]+\.)+[a-z]{2,6}$/ix", $str)) ? FALSE : TRUE;
+    }
 
     if(!isset($formSubmit)){
         header('Location: ./cotizacion.php?f=form');
@@ -28,7 +30,7 @@ if($_SERVER['REQUEST_METHOD'] === 'POST'){
         header("Location: ./cotizacion.php?f=email&nombre=$nombre&email=$email&edad=$edad&sol=$solicitud");
         exit();
     }
-    elseif(!filter_var($edad, FILTER_VALIDATE_INT) || ($edad < 18 && $edad >60) )  { 
+    elseif(!filter_var($edad, FILTER_VALIDATE_INT) || ($edad < 18 || $edad >60) )  { 
         header("Location: ./cotizacion.php?f=edad&nombre=$nombre&email=$email&edad=$edad&sol=$solicitud");
         exit();
     }

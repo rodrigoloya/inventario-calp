@@ -36,7 +36,7 @@
             $nombre =   $_GET['nombre'];
             $email =    $_GET['email'];
             $edad=      $_GET['edad'];
-            $solicitud =$_GET['solicitud'];
+            $solicitud =$_GET['sol'];
             $formStatus=$_GET["f"];
         
         }
@@ -76,12 +76,9 @@ electrónico.
                         print ("<h3 class='error'>La edad debe ser mínimo una edad de 18 años (mayores de edad) y máximo de 60 años </h3>");
                     }
                     elseif($formStatus == "solicitud"){
-                        print ("<h3 class='error'>La solicitud es requerida con minimo 3 caracteres. Verifique</h3>");
+                        print ("<h3 class='error'>La solicitud es requerida con minimo 10 caracteres. Verifique</h3>");
                     }
-                    else{
-                        
-                        print ("<h3 class='error'>Datos incorrectos.$formStatus</h3>");
-                    }
+                     
                     
                 ?>
                 <form action="cotizacion.component.php" method="post">
@@ -95,7 +92,7 @@ electrónico.
                     <br>
                     <span class="requerido">*</span> <span>Detalles de la solicitud:</span>
                     <br>
-                    <?php echo '<textarea name="solicitud" id="solicitud" cols="60" rows="6" value="'.$solicitud.'"></textarea>' ?>
+                    <?php echo '<textarea name="solicitud" id="solicitud" cols="60" rows="6">'.$solicitud.'</textarea>' ?>
                     <br>
                     <button id="cancelar" type="reset">Cancelar</button>
                       
