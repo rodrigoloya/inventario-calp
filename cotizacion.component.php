@@ -12,7 +12,12 @@ if($_SERVER['REQUEST_METHOD'] === 'POST'){
     $formSubmit =   $_POST['enviar'];
 
     function checkemail($str) {
-         return (!preg_match("/^([a-z0-9\+_\-]+)(\.[a-z0-9\+_\-]+)*@([a-z0-9\-]+\.)+[a-z]{2,6}$/ix", $str)) ? FALSE : TRUE;
+        try {
+            return (!preg_match("/^([a-z0-9\+_\-]+)(\.[a-z0-9\+_\-]+)*@([a-z0-9\-]+\.)+[a-z]{2,6}$/ix", $str)) ? FALSE : TRUE;
+
+        } catch (Exception $e) {
+            echo $e -> getMessage();
+        }
     }
 
     if(!isset($formSubmit)){

@@ -29,8 +29,9 @@ h2{
     margin-top: 70px;
     margin-bottom: 70px;
     background-color: bisque;
-    height: calc( 100vh - 120px);
+   
     border-radius: 50px;
+    min-height: 600px;
 }
 
 .menu {
@@ -74,21 +75,21 @@ h2{
 
 
 .footer{
-   position: absolute;
-   
-   bottom: 22px;
-   align-items: center;
+    display: flex;
+   position: relative;  
+   top: 50px;
+   width: 100%;
 }
 
 .footer-content {
       display: flex;
       width: 100%;
-   align-items: center;
+      justify-content: space-around;
     
 }
 
 .footer-content p{
-   margin: 0px 20px 0px 20px;
+   margin: 0px 0px 0px 20px;
 }
 
 article{
@@ -99,6 +100,7 @@ article{
 .content{
     padding-left: 50px;
     padding-right: 50px;
+    min-height: 400px;
 }
 .content img{
      margin: 30px;
@@ -114,7 +116,7 @@ article{
 
 .tabla-catalogo{
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-columns: repeat(6,1fr);
     
 }
 
@@ -169,6 +171,16 @@ article{
 .success{
     color: green;
 }
+
+.buscar-contenido{
+	display:flex;
+}
+
+.buscar-contenido input{
+	 width: 500px;
+	 height: 40px;
+}
+
 
 #nombre{
     width: 260px;

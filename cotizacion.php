@@ -16,7 +16,7 @@
             <nav class="menu">
                 <ul class="menu-content">
                     <li class="menu-item"><a href="./index.html">Negocio</a></li>
-                    <li class="menu-item"><a href="./catalogo.html">Catálogo</a> </li>
+                    <li class="menu-item"><a href="./catalogo.php">Catálogo</a> </li>
                     <li class="menu-item"><a href="./cotizacion.php">Cotización</a></li>
                     <li class="menu-item"><a href="./contacto.html">Contacto</a></li>
                     <li class="menu-item"><a href="./admin/login.html">Administración</a></li>
@@ -33,11 +33,15 @@
         $solicitud ="";
         $formStatus="";
         if(isset($_GET["f"])){
-            $nombre =   $_GET['nombre'];
-            $email =    $_GET['email'];
-            $edad=      $_GET['edad'];
-            $solicitud =$_GET['sol'];
-            $formStatus=$_GET["f"];
+            try {
+                $nombre =   $_GET['nombre'];
+                $email =    $_GET['email'];
+                $edad=      $_GET['edad'];
+                $solicitud =$_GET['sol'];
+                $formStatus=$_GET["f"];
+            } catch(Exception $e) {
+                echo $e->getMessage();
+            }           
         
         }
         ?>
