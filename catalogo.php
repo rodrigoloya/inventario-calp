@@ -15,6 +15,7 @@
                 <ul class="menu-content">
                     <li class="menu-item"><a href="./index.html">Negocio</a></li>
                     <li class="menu-item"><a href="./catalogo.php" >Catálogo</a> </li>
+                    <li class="menu-item"><a href="./galeria.html">Galería</a> </li>
                     <li class="menu-item"><a href="./cotizacion.php" >Cotización</a></li>
                     <li class="menu-item"><a href="./contacto.html" >Contacto</a></li>
                     <li class="menu-item"><a href="./admin/login.html">Administración</a></li>
@@ -24,8 +25,13 @@
 
         <div class="content">
 <?php
+
+    //Bandera para saber si ha sido filtrado el catalogo.
     $isFiltered = false;
+    //arreglo para almacenar el objeto Producto
     $lstFilteredProd = [];
+
+    //Clase para escribir en la consola del navegador.
     $consola = new Consola();
     class Consola {
 
@@ -35,7 +41,10 @@
         }
     }
 
+    //Clase para almacenar la informacion basica de un producto
     class Producto {
+
+        //Attributos de la clase
         public $clave;
         public $nombre;
         public $descripcion;
@@ -49,17 +58,23 @@
             return $this->nombre;
         }
 
+        //Metodo para obtener la cadena a buscar
         function getContentFilter(){
             $result = "$this->clave $this->nombre $this->descripcion $this->presentacion $this->precio $this->cantidad";
+            
+            //Convertimos en minusculas
+            //TODO: limpiar la cadena para convertir las vocales acentuadas en vocales sin acentos
             $result = strtolower($result);
-            echo "<script>console.log('$result')</script>";
+            
             return $result;
         }
-
     }
+
+    //Creacion del arreglo general de productos (traido de la base de datos)
     $lstProductos = array();
     $iClave = 1001;
 
+    //A continuacion se llenan valores de prueba para el arreglo de productos.
     $lstProductos[0] = new Producto();
     $lstProductos[0]->clave = $iClave++;
     $lstProductos[0]->nombre = "Atun en Lata";
@@ -83,7 +98,6 @@
     $lstProductos[2]->precio = "87.00";
     $lstProductos[2]->cantidad = "20.00";
     $lstProductos[2]->presentacion = "Paquete con 12";
-
  
     $lstProductos[3] = new Producto();
     $lstProductos[3]->clave = $iClave++;
@@ -117,42 +131,39 @@
     $lstProductos[6]->cantidad = "895.00";
     $lstProductos[6]->presentacion = "Pieza";
 
+    //Fin del llenado de arreglos con datos de prueba
 
 
+    //Metodo filtrar que busca una cadena de caracteres
     function filter($filtro, $lstProductos, $consola)  {
         $result = [];
         $i = 0;
         foreach($lstProductos as $item) {
-            $findInd = strpos($item->getContentFilter(), strtolower( $filtro));
-             $consola->log($findInd);
+
+            $findInd = strpos($item->getContentFilter(), strtolower( $filtro));             
             if($findInd != ""){
                 $result[$i] = $item;
                 $i++;
             }
         }
-       // print_r($result);
         return $result;
     }
-
+    
     $lstFilteredProd = $lstProductos;
 
     if($_SERVER["REQUEST_METHOD"] === "GET" && isset($_GET["search"])){
         $isFiltered = true;
 
         $filtro = $_GET["search"];
+
+        //Devolvemos todos los productos cuando la caja de texto a buscar esta vacia.
         if(strlen( $filtro) > 0){
             $lstFilteredProd = filter($filtro,$lstProductos, $consola);
         }
         else{
             $lstFilteredProd = $lstProductos;
         }
-
-       // print_r($lstFilteredProd);
     }
-
-
-
-
      
 ?>
             <!--
@@ -191,7 +202,6 @@ contener al menos 5 productos o filas).
                  
             </div>
         </div>
-        <pre><?php //print_r($lstProductos);?> </pre>
         <footer class="footer">
             <div class="footer-content">
                 <p>Carlos Rodrigo Loya Piñera</p>

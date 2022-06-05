@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Galeria</title>
+
+    <!--Script Javascript para inyectarlo a html-->
+    <script src="./js/galeria.js"></script>
+    <link rel="stylesheet" href="./css/main.css">
+</head>
+
+<body>
+    <div class="layout">
+
+        <header>
+            <!--Mostrar Menu en cabecera-->
+            <nav class="menu">
+                <ul class="menu-content">
+                    <li class="menu-item"><a href="./index.html">Negocio</a></li>
+                    <li class="menu-item"><a href="./catalogo.php">Catálogo</a> </li>
+                    <li class="menu-item"><a href="./galeria.html">Galería</a> </li>
+                    <li class="menu-item"><a href="./cotizacion.php">Cotización</a></li>
+                    <li class="menu-item"><a href="./contacto.html">Contacto</a></li>
+                    <li class="menu-item"><a href="./admin/login.html">Administración</a></li>
+                </ul>
+            </nav>
+        </header>
+        
+        <!--How to - slideshow. How To Create a Slideshow. (n.d.). Recuperado Junio 5, 2022, de https://www.w3schools.com/howto/howto_js_slideshow.asp -->
+        <div class="slideshow-container">
+
+            <div class="mySlides fade">
+                <div class="numbertext">1 / 3</div>
+                <div class="slide-container">
+                    <img class="img-slide" src="./imagenes/huevo.jpg" alt="Huevo">
+                    <div class="text">Huevo</div>
+                </div>
+            </div>
+
+            <div class="mySlides fade">
+                <div class="numbertext">2 / 3</div>
+                <div class="slide-container">
+                    <img class="img-slide" src="./imagenes/atun.jpg" alt="Atun en Lata">
+                    <div class="text">Atun en Lata</div>
+                </div>
+
+            </div>
+
+            <div class="mySlides fade">
+                <div class="numbertext">3 / 3</div>
+                <div class="slide-container">
+                    <img class="img-slide" src="./imagenes/mantequilla.webp" alt="Mantequilla">
+                    <div class="text">Mantequilla</div>
+                </div>
+            </div>
+
+            <div class="mySlides fade">
+                <div class="numbertext">3 / 3</div>
+                <div class="slide-container">
+                    <img class="img-slide" src="./imagenes/leche.webp" alt="Leche">
+                    <div class="text">Leche</div>
+                </div>
+            </div>
+            <div class="mySlides fade">
+                <div class="numbertext">3 / 3</div>
+                <div class="slide-container">
+                    <img class="img-slide" src="./imagenes/arroz.jpg" alt="Arroz">
+                    <div class="text">Arroz</div>
+                </div>
+            </div>
+            <div class="mySlides fade">
+                <div class="numbertext">3 / 3</div>
+                <div class="slide-container">
+                    <img class="img-slide" src="./imagenes/jabon_zote.jpg" alt="Jabón">
+                    <div class="text">Jabón</div>
+                </div>
+            </div>
+
+            <a class="prev" onclick="plusSlides(-1)">❮</a>
+            <a class="next" onclick="plusSlides(1)">❯</a>
+
+        </div>
+        <br>
+
+        <div class="dots-galeria">
+            <span class="dot" onclick="currentSlide(1)"></span>
+            <span class="dot" onclick="currentSlide(2)"></span>
+            <span class="dot" onclick="currentSlide(3)"></span>
+            <span class="dot" onclick="currentSlide(4)"></span>
+            <span class="dot" onclick="currentSlide(5)"></span>
+            <span class="dot" onclick="currentSlide(6)"></span>
+        </div>
+
+        <div class="galeria">
+            <div class="img-container">
+                <img loading="lazy" src="./imagenes/atun.jpg" alt="Atun en Lata" srcset="">
+                <div class="img-label"><span>Atun en Lata</span></div>
+                </img>
+            </div>
+            <div class="img-container">
+                <img src="./imagenes/leche.webp" alt="Leche" srcset="">
+                <div class="img-label"><span>Leche</span></div>
+                </img>
+            </div>
+            <div class="img-container">
+                <img src="./imagenes/huevo.jpg" alt="Huevo" srcset="">
+                <div class="img-label"><span>Huevo</span></div>
+                </img>
+            </div>
+            <div class="img-container">
+                <img src="./imagenes/mantequilla.webp" alt="Mantequilla" srcset="">
+                <div class="img-label"><span>Mantequilla</span></div>
+                </img>
+            </div>
+            <div class="img-container">
+                <img src="./imagenes/arroz.jpg" alt="Arroz" srcset="">
+                <div class="img-label"><span>Arroz</span></div>
+                </img>
+            </div>
+            <div class="img-container">
+                <img src="./imagenes/coke-600.jpg" alt="Coca Cola" srcset="">
+                <div class="img-label"><span>Coca Cola</span></div>
+                </img>
+            </div>
+            <div class="img-container">
+                <img src="./imagenes/jabon_zote.jpg" alt="Jabón Zote" srcset="">
+                <div class="img-label"><span>Jabón Zote</span></div>
+                </img>
+            </div>
+        </div>
+
+
+        <!--mostar el pie de pagina-->
+        <footer class="footer">
+            <div class="footer-content">
+                <p>Carlos Rodrigo Loya Piñera</p>
+                <p>PW1</p>
+                <p>Mayo 2022</p>
+            </div>
+        </footer>
+
+    </div>
+</body>
+
+</html>
