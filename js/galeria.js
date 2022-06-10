@@ -36,6 +36,7 @@ function showSlidesAuto(){
     if (slideIndex > slides.length) {slideIndex = 1}
     slides[slideIndex-1].style.display = "block";
     
+    
     //Bandera para controlar que se detenga la animacion
     if(automatico) {
         //inicializamos que cada dos segundos se ejecute la animacion
