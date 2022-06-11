@@ -94,10 +94,19 @@ class Producto {
     function __construct(){ }
 }
 
+//Funcion que regresa un arreglo de tipo Producto, con todos los elementos activos de la tabla producto
 function getAllProductos(){
+
+    //Obtenemos el objeto de conexion MySQL
     $conn = getConn();
+
+    //creamos un arreglo vacio
     $lstProductos = array();
+
+    //obtenemos un objeto mysqli_result que contiene el comando SQL para ejecutar en la BD
     $query = mysqli_query($conn, "SELECT * FROM producto WHERE IdStatusProducto IS NULL OR IdStatusProducto NOT IN (2)");
+   
+    //Verificamos que tenga registros la consulta, de ser asi hidratamos el arreglo
     if(mysqli_num_rows($query)> 0){
         $i=0;
         while($row = mysqli_fetch_assoc($query)){
@@ -116,12 +125,18 @@ function getAllProductos(){
             $i++;
         }
     }
+
+    //Cerramos la conexion a la base de datos para liberar recursos.
     $query->close();
+
+    //devolvemos el arreglo
     return $lstProductos;
 }
 
+//Funcion para insertar un registro en la tabla producto
 function agreagarProducto($producto){
     
+    //Construccion del query para insertar una fila en la tabla
     $query = "INSERT INTO producto (Clave, Nombre, Descripcion, Precio, Presentacion) VALUES (
          '$producto->clave'
         ,'$producto->nombre'
@@ -130,12 +145,17 @@ function agreagarProducto($producto){
         ,'$producto->presentacion'
       
     )";
+
+    //Obtenemos el objeto de conexion
     $conn = getConn();
 
+    //Ejecutamos el comando query (comando procedimental) que devuelve un booleano
     $result =  $conn->query($query);
 
+    //Cerramos la conexion a la base de datos
     $conn->close();
 
+    //Redirigimos la navegacion y enviamos un parametro en la url para indicar si el comando fue satisfactorio o no
      if($result === true){
         header('Location: ./productos.php?f=success');
         exit();
@@ -146,18 +166,24 @@ function agreagarProducto($producto){
      }
 }
 
+//Funcion que modifica un registro de la tabla producto por su llave primaria.
 function actualizarProducto($producto)
 {
+    //Construccion del query SQL UPDATE
     $query = "UPDATE producto SET 
         Clave = '$producto->clave', Nombre='$producto->nombre', Descripcion='$producto->descripcion',
          Precio=$producto->precio, Presentacion='$producto->presentacion' WHERE IdProducto = $producto->idProducto";
       
+      //Obtenemos el objeto mysqli conexion
    $conn = getConn();
 
+   //Ejecutamos el comando SQL en la base de datos, y almacenamos la respuesta TRUE or FALSE
    $result =  $conn->query($query);
 
+   //Cerramos la conexion a la BD
    $conn->close();
 
+   //Redirigimos la navegacion enviando un parametro de status de la operacion
     if($result === true){
        header('Location: ./productos.php?f=success');
        exit();
@@ -168,15 +194,24 @@ function actualizarProducto($producto)
     }
 }
 
+//Funcion para dar de baja logica un producto de la tabla producto
 function borrarProducto($idProducto){
+
+    //Construccion del commando SQL update donde actualizaremos la columna IdStatusProducto
+    //al valor 2 que representa Inactivo
     $query = "UPDATE producto SET 
         IdStatusProducto = 2  WHERE IdProducto = $idProducto";
+
+        //Obtenemos el objeto de conexion
    $conn = getConn();
 
+   //Ejecutamos el comando SQL
    $result =  $conn->query($query);
 
+   //Cerramos la conexion a la BD
    $conn->close();
  
+   //Redirigimos la navegacion enviando un parametro de resultado de la operacion
     if($result === true){
        header('Location: ./productos.php?f=success');
        exit();

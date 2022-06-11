@@ -6,23 +6,27 @@ define('LPASS', '');
 define('LPORT','3306');
 define('LDB', 'chiringuito');
 
+//Definimos las variables de entorno, para uso local y remoto
 define('RHOST', 'containers-us-west-68.railway.app');
 define('RUSER', 'root');
 define('RPASS', '9jrP8S4ZAcJjAb9jE2YD');
 define('RPORT','6333');
-
 define('RDB', 'railway');
 
-function getConn(){
-$conn = new mysqli(RHOST, RUSER, RPASS, RDB, RPORT);
 
-// Check connection
-if ($conn->connect_error) {
-  die("Connection failed: " . $conn->connect_error);
+//Funcion que devuelve un objeto mysqli, necesario para ejecutar los commandos SQL
+function getConn(){
+    // Create connection
+    $conn = new mysqli(RHOST, RUSER, RPASS, RDB, RPORT);
+
+    // Validamos que la conexion se haya realizado
+    if ($conn->connect_error) {
+        //salimos del procedimiento lanzando un mensaje de error
+        die("Connection failed: " . $conn->connect_error);
+    }
+    return $conn;
 }
- return $conn;
-}
-// Create connection
+
 
 /*echo "Connected successfully";
 

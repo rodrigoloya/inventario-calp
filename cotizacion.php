@@ -83,6 +83,9 @@ electrónico.
                     elseif($formStatus == "solicitud"){
                         print ("<h3 class='error'>La solicitud es requerida con minimo 10 caracteres. Verifique</h3>");
                     }
+                    elseif($formStatus == "error"){
+                        print ("<h3 class='error'>Ocurrio un error al enviar el formulario</h3>");
+                    }
                      
                     
                 ?>

@@ -1,5 +1,22 @@
-
 <?php   
+    include_once './includes/conexion.php';
+
+
+class Cotizacion{
+
+    public $idCotizacion;
+    public $nombre;
+    public $edad;
+    public $email;
+    public $detalle;
+    public $fechaAlta;
+    public $fechaModificacion;
+
+
+    function __construct(){ }
+    
+}
+
 
 //Verificamos que se haya hecho un post
 if($_SERVER['REQUEST_METHOD'] === 'POST'){
@@ -48,11 +65,53 @@ if($_SERVER['REQUEST_METHOD'] === 'POST'){
     }
     else{
         //Enviamos un attributo de success cuando paso todas las validaciones.
-        header('Location: ./cotizacion.php?f=success');
-        exit();
+
+        //intetamos insertar en la base de datos
+        $date = date('Y-m-d H:i:s');
+
+        $c = new Cotizacion();
+        $c->nombre      = $nombre ;
+        $c->edad        = $edad ;
+        $c->email       = $email ;
+        $c->solicitud   = $solicitud ;
+        $c->fechaAlta   = $date ;
+         
+       agregarCotizacion($c);
     }
 
 
+
+}
+
+function agregarCotizacion($cotizacion){
+
+    //Construccion del query para insertar una fila en la tabla
+    $query = "INSERT INTO cotizacion (Nombre, Edad, Email, Detalle, FechaAlta) VALUES (
+        '$cotizacion->nombre'
+       , $cotizacion->edad
+       ,'$cotizacion->email'
+       ,'$cotizacion->detalle'
+       ,'$cotizacion->fechaAlta'     
+   )";
+
+   //Obtenemos el objeto de conexion
+   $conn = getConn();
+
+   //Ejecutamos el comando query (comando procedimental) que devuelve un booleano
+   $result =  $conn->query($query);
+
+   //Cerramos la conexion a la base de datos
+   $conn->close();
+
+   //Redirigimos la navegacion y enviamos un parametro en la url para indicar si el comando fue satisfactorio o no
+    if($result === true){
+       header('Location: ./cotizacion.php?f=success');
+       exit();
+    }
+    else{
+       header('Location: ./cotizacion.php?f=error');
+       exit();
+    }
 
 }
 
