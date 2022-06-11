@@ -182,18 +182,8 @@ catch (\Throwable $th) {
     function borrarRegistro(idProducto){
         const respuesta =  confirm('Esta seguro de eliminar el registro?');
         if(respuesta){
-            let xhttp = new XMLHttpRequest();
-            xhttp.open("GET", "productos.component.php?request=d&idproducto=" +idProducto, false);
-            xhttp.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
-            xhttp.onreadystatechange = function() {
-            if (this.readyState == 4 && this.status == 200) {
-
-                // Response
-                var response = this.responseText; 
-
-            }
-            };
-            xhttp.send();
+            location.assign("productos.component.php?request=d&idproducto=" +idProducto);
+             
         }
     }
 </script>
