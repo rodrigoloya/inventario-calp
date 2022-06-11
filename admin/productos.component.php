@@ -97,7 +97,7 @@ class Producto {
 function getAllProductos(){
     $conn = getConn();
     $lstProductos = array();
-    $query = mysqli_query($conn, "SELECT * FROM producto");
+    $query = mysqli_query($conn, "SELECT * FROM producto WHERE IdStatusProducto NOT IN (2)");
     if(mysqli_num_rows($query)> 0){
         $i=0;
         while($row = mysqli_fetch_assoc($query)){
@@ -150,7 +150,7 @@ function actualizarProducto($producto)
 {
     $query = "UPDATE producto SET 
         Clave = '$producto->clave', Nombre='$producto->nombre', Descripcion='$producto->descripcion',
-         Precio=$producto->precio, Presentacion='$producto->presentacion' WHERE IdProducto = $producto->idproducto";
+         Precio=$producto->precio, Presentacion='$producto->presentacion' WHERE IdProducto = $producto->idProducto";
          print ($query);
    $conn = getConn();
 
@@ -159,24 +159,24 @@ function actualizarProducto($producto)
    $conn->close();
 
     if($result === true){
-     #  header('Location: ./productos.php?f=success');
+       header('Location: ./productos.php?f=success');
        exit();
     }
     else{
-      # header('Location: ./productos.php?f=error');
+        header('Location: ./productos.php?f=error');
        exit();
     }
 }
 
 function borrarProducto($idProducto){
     $query = "UPDATE producto SET 
-        IdStatusProducto = 2  WHERE idproducto = $idProducto";
+        IdStatusProducto = 2  WHERE IdProducto = $idProducto";
    $conn = getConn();
 
    $result =  $conn->query($query);
 
    $conn->close();
-/*
+ 
     if($result === true){
        header('Location: ./productos.php?f=success');
        exit();
@@ -184,7 +184,7 @@ function borrarProducto($idProducto){
     else{
        header('Location: ./productos.php?f=error');
        exit();
-    }*/
+    } 
 }
 
 ?>

@@ -99,7 +99,7 @@ catch (\Throwable $th) {
                  
             </div>
         </div>
-
+        <div id="snackbar">Completado...</div>
         <footer class="footer">
             <div class="footer-content">
                 <p>Carlos Rodrigo Loya Piñera</p>
@@ -186,4 +186,11 @@ catch (\Throwable $th) {
              
         }
     }
+
+    function showToast() {
+  var x = document.getElementById("snackbar");
+  x.className = "show";
+  setTimeout(function(){ x.className = x.className.replace("show", ""); }, 3000);
+}
+
 </script>
