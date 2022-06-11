@@ -24,8 +24,20 @@ if($_SERVER['REQUEST_METHOD'] === 'POST'){
         }
     }
 
+
+
     if(!isset($formSubmit)){
         header('Location: ./productos.php?f=form');
+        exit();
+    }
+
+    if(strlen($nombre) === 0 ){
+        header("Location: ./cotizacion.php?f=nombre");
+        exit();
+    }
+
+    if(strlen($clave) === 0 ){
+        header("Location: ./cotizacion.php?f=clave");
         exit();
     }
 
@@ -42,7 +54,7 @@ if($_SERVER['REQUEST_METHOD'] === 'POST'){
     }
     else{
         //editar registro
-        
+
     }
 
 }

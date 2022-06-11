@@ -20,7 +20,7 @@
         <header>
             <nav class="menu">
                 <ul class="menu-content">
-                    <li class="menu-item"><a href="../admin/productos.html">Productos por Vender</a> </li>
+                    <li class="menu-item"><a href="../admin/productos.php">Productos por Vender</a> </li>
                     <li class="menu-item"><a href="../admin/cotizaciones.html">Consultar Solicitudes</a></li>
                     <li class="menu-item"><a href="../index.html">Cerrar Session</a></li>
                 </ul>
@@ -85,14 +85,14 @@ catch (\Throwable $th) {
 <?php
     $productos = getAllProductos();
     foreach ($productos as $item){
-   echo '<div class="admin-producto-row">'.$item->clave.'</div>';
-   echo '<div class="admin-producto-row">'.$item->nombre.'</div>';
-   echo '<div class="admin-producto-row">'.$item->presentacion.'</div>';
-   echo '<div class="admin-producto-row right">'.$item->precio.'</div>';
+   echo '<div id="clave_'.$item->idProducto.'" class="admin-producto-row">'.$item->clave.'</div>';
+   echo '<div id="nombre_'.$item->idProducto.'" class="admin-producto-row">'.$item->nombre.'</div>';
+   echo '<div id="pres_'.$item->idProducto.'" class="admin-producto-row">'.$item->presentacion.'</div>';
+   echo '<div id="precio_'.$item->idProducto.'" class="admin-producto-row right">'.$item->precio.'</div>';
    echo '<div class="admin-producto-row">';
    echo '    <a href="#" class="cell-link">Ver</a>';
-   echo '    <a href="#" class="cell-link">Editar</a>';
-   echo '    <a href="#" class="cell-link">Borrar</a>';
+   echo '    <a href="#" class="cell-link" onclick="editarRegistro('.$item->idProducto.')">Editar</a>';
+   echo '    <a href="#" class="cell-link" onclick="borrarRegistro('.$item->idProducto.')">Borrar</a>';
    echo '</div>';
     }
 ?>
@@ -159,13 +159,13 @@ catch (\Throwable $th) {
           
             <input type="hidden" name="idProducto" id="idProducto">
             <span>Clave:</span>
-            <input type="text" name="clave" id="clave" placeholder="Clave del producto">
+            <input type="text" name="clave" id="clave" placeholder="Clave del producto" required>
             <span>Nombre:</span>
-            <input type="text" name="nombre" id="nombre" placeholder="Nombre del producto">
+            <input type="text" name="nombre" id="nombre" placeholder="Nombre del producto" required>
             <span>Presentacion:</span>
-            <input type="text" name="presentacion" id="presentacion" placeholder="Presentacion del producto">
+            <input type="text" name="presentacion" id="presentacion" placeholder="Presentacion del producto" required>
             <span>Precio:</span>
-            <input type="text" name="precio" id="precio" placeholder="Precio del producto">
+            <input type="text" name="precio" id="precio" placeholder="Precio del producto" required>
             <div class="modal-footer">
                 <button id="btnSubmit" name="btnSubmit" >Aceptar</button>
             </div>
@@ -187,4 +187,20 @@ catch (\Throwable $th) {
     closeBtn.addEventListener('click', () => {
         modal.style.display = 'none'
     });
+
+    function editarRegistro(idProducto){
+        const clave = document.getElementById("clave_"+idProducto);
+        const nombre = document.getElementById("nombre_"+idProducto);
+        const pres = document.getElementById("pres_"+idProducto);
+        const precio = document.getElementById("precio_"+idProducto);        
+
+        document.getElementById('clave').value = clave.innerHTML;
+        document.getElementById('nombre').value = nombre.innerHTML;
+        document.getElementById('presentacion').value = pres.innerHTML;
+        document.getElementById('precio').value = precio.innerHTML;
+        document.getElementById("idProducto").value = idProducto;
+        modal.style.display = 'flex';
+
+
+    }
 </script>
