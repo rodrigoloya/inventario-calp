@@ -21,7 +21,7 @@
             <nav class="menu">
                 <ul class="menu-content">
                     <li class="menu-item"><a href="../admin/productos.php">Productos por Vender</a> </li>
-                    <li class="menu-item"><a href="../admin/cotizaciones.html">Consultar Solicitudes</a></li>
+                    <li class="menu-item"><a href="../admin/cotizaciones.php">Consultar Solicitudes</a></li>
                     <li class="menu-item"><a href="../index.html">Cerrar Session</a></li>
                 </ul>
             </nav>
