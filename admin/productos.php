@@ -84,7 +84,7 @@ catch (\Throwable $th) {
 
                 <?php
                     $productos = getAllProductos();
-                    if(count($productos)> 0){
+                if(count($productos)> 0){
                     foreach ($productos as $item){
                 echo '<div id="clave_'.$item->idProducto.'" class="admin-producto-row">'.$item->clave.'</div>';
                 echo '<div id="nombre_'.$item->idProducto.'" class="admin-producto-row">'.$item->nombre.'</div>';

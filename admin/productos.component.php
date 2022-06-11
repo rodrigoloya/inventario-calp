@@ -151,7 +151,7 @@ function actualizarProducto($producto)
     $query = "UPDATE producto SET 
         Clave = '$producto->clave', Nombre='$producto->nombre', Descripcion='$producto->descripcion',
          Precio=$producto->precio, Presentacion='$producto->presentacion' WHERE IdProducto = $producto->idProducto";
-         print ($query);
+      
    $conn = getConn();
 
    $result =  $conn->query($query);
