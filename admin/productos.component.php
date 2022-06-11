@@ -71,7 +71,7 @@ else{
  
     
     $queryReq = $_GET['request'];
-    print(queryReq);
+    print($queryReq);
     if($queryReq === "d"){
         //delete
         $id = $_GET['idproducto'];
