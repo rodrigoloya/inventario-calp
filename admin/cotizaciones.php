@@ -1,3 +1,6 @@
+<?php
+    include './cotizaciones.component.php';
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -37,6 +40,24 @@ contener al menos 2 solicitudes).
             <div class="solicitud-encabezado">Fecha Solicitud</div>
             <div class="solicitud-encabezado">Descripción de la Solicitud</div>
 
+
+            <?php
+            $sol = getAllCotizaciones();
+
+            if (count($sol)>0){
+                //Existen registros
+                foreach ($sol as $item){
+                    echo  '<div class="solicitud-row">'.$item->nombre.'</div>';
+                    echo  '<div class="solicitud-row">'.$item->email.'</div>';
+                    echo  '<div class="solicitud-row">'.$item->fechaAlta.'</div>';
+                    echo  '<div class="solicitud-row">'.$item->detalle.'</div>';
+                }
+            }
+            else{
+                echo '<div class="solicitud-row">No se encontraros elementos</div>';
+            }
+
+            ?>
 
             <div class="solicitud-row">Rodrigo Loya</div>
             <div class="solicitud-row">rloya@nube.unadmexico.mx</div>

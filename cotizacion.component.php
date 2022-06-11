@@ -73,7 +73,7 @@ if($_SERVER['REQUEST_METHOD'] === 'POST'){
         $c->nombre      = $nombre ;
         $c->edad        = $edad ;
         $c->email       = $email ;
-        $c->solicitud   = $solicitud ;
+        $c->detalle   = $solicitud ;
         $c->fechaAlta   = $date ;
          
        agregarCotizacion($c);

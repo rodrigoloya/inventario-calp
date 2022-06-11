@@ -145,6 +145,15 @@ catch (\Throwable $th) {
     const modal = document.querySelector('.bg-modal');
     const closeBtn = document.querySelector('.close');
     openButton.addEventListener('click', () => {
+        document.querySelector(".modal-header h3").innerHTML = "Agregar Producto"
+
+        document.getElementById('clave').value = '';
+        document.getElementById('nombre').value = '';
+        document.getElementById('presentacion').value ='';
+        document.getElementById('precio').value = '';
+        document.getElementById("idProducto").value = '';
+
+
         modal.style.display = 'flex';
     }); 
     closeBtn.addEventListener('click', () => {
@@ -165,6 +174,8 @@ catch (\Throwable $th) {
         document.getElementById("idProducto").value = idProducto;
         modal.style.display = 'flex';
 
+        document.querySelector(".modal-header h3").innerHTML = "Editar Producto"
+
 
     }
 
@@ -182,6 +193,7 @@ catch (\Throwable $th) {
         modal.style.display = 'flex';
 
         document.getElementById('btnSubmit').style.display = 'none';
+        document.querySelector(".modal-header h3").innerHTML = "Detalle Producto"
 
     }
 
