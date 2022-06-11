@@ -97,7 +97,7 @@ class Producto {
 function getAllProductos(){
     $conn = getConn();
     $lstProductos = array();
-    $query = mysqli_query($conn, "SELECT * FROM producto WHERE IdStatusProducto NOT IN (2)");
+    $query = mysqli_query($conn, "SELECT * FROM producto WHERE IdStatusProducto IS NULL OR IdStatusProducto NOT IN (2)");
     if(mysqli_num_rows($query)> 0){
         $i=0;
         while($row = mysqli_fetch_assoc($query)){
