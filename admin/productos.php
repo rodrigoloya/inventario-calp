@@ -72,7 +72,7 @@ catch (\Throwable $th) {
         }
 ?>
             <div class="agregar-producto">
-                <button id="btnAgregarProducto">Agregar Producto</button>
+                <button class="btnAgregarProducto" id="btnAgregarProducto">Agregar Producto</button>
             </div>
 
             <div class="tabla-admin-productos">
@@ -82,64 +82,21 @@ catch (\Throwable $th) {
                 <div class="admin-producto-encabezado right">Precio</div>
                 <div class="admin-producto-encabezado">Acción</div>
 
-<?php
-    $productos = getAllProductos();
-    foreach ($productos as $item){
-   echo '<div id="clave_'.$item->idProducto.'" class="admin-producto-row">'.$item->clave.'</div>';
-   echo '<div id="nombre_'.$item->idProducto.'" class="admin-producto-row">'.$item->nombre.'</div>';
-   echo '<div id="pres_'.$item->idProducto.'" class="admin-producto-row">'.$item->presentacion.'</div>';
-   echo '<div id="precio_'.$item->idProducto.'" class="admin-producto-row right">'.$item->precio.'</div>';
-   echo '<div class="admin-producto-row">';
-   echo '    <a href="#" class="cell-link">Ver</a>';
-   echo '    <a href="#" class="cell-link" onclick="editarRegistro('.$item->idProducto.')">Editar</a>';
-   echo '    <a href="#" class="cell-link" onclick="borrarRegistro('.$item->idProducto.')">Borrar</a>';
-   echo '</div>';
-    }
-?>
-                <div class="admin-producto-row">1001</div>
-                <div class="admin-producto-row">Atun en Lata</div>
-                <div class="admin-producto-row right">155.00</div>
-                <div class="admin-producto-row">
-                    <a href="#" class="cell-link">Ver</a>
-                    <a href="#" class="cell-link">Editar</a>
-                    <a href="#" class="cell-link">Borrar</a>
-                </div>
-
-                <div class="admin-producto-row">1002</div>
-                <div class="admin-producto-row">Leche</div>
-                <div class="admin-producto-row right">44.00</div>
-                <div class="admin-producto-row">
-                    <a href="#" class="cell-link">Ver</a>
-                    <a href="#" class="cell-link">Editar</a>
-                    <a href="#" class="cell-link">Borrar</a>
-                </div>
-
-                <div class="admin-producto-row">1003</div>
-                <div class="admin-producto-row">Huevo</div>
-                <div class="admin-producto-row right">87.00</div>
-                <div class="admin-producto-row">
-                    <a href="#" class="cell-link">Ver</a>
-                    <a href="#" class="cell-link">Editar</a>
-                    <a href="#" class="cell-link">Borrar</a>
-                </div>
-
-                <div class="admin-producto-row">1004</div>
-                <div class="admin-producto-row">Mantequilla</div>
-                <div class="admin-producto-row right">44.00</div>
-                <div class="admin-producto-row">
-                    <a href="#" class="cell-link">Ver</a>
-                    <a href="#" class="cell-link">Editar</a>
-                    <a href="#" class="cell-link">Borrar</a>
-                </div>
-
-                <div class="admin-producto-row">1005</div>
-                <div class="admin-producto-row">Arroz</div>
-                <div class="admin-producto-row right">27.00</div>
-                <div class="admin-producto-row">
-                    <a href="#" class="cell-link">Ver</a>
-                    <a href="#" class="cell-link">Editar</a>
-                    <a href="#" class="cell-link">Borrar</a>
-                </div>
+                <?php
+                    $productos = getAllProductos();
+                    foreach ($productos as $item){
+                echo '<div id="clave_'.$item->idProducto.'" class="admin-producto-row">'.$item->clave.'</div>';
+                echo '<div id="nombre_'.$item->idProducto.'" class="admin-producto-row">'.$item->nombre.'</div>';
+                echo '<div id="pres_'.$item->idProducto.'" class="admin-producto-row">'.$item->presentacion.'</div>';
+                echo '<div id="precio_'.$item->idProducto.'" class="admin-producto-row right">'.$item->precio.'</div>';
+                echo '<div class="admin-producto-row">';
+                echo '    <a href="#" class="cell-link">Ver</a>';
+                echo '    <a href="#" class="cell-link" onclick="editarRegistro('.$item->idProducto.')">Editar</a>';
+                echo '    <a href="#" class="cell-link" onclick="borrarRegistro('.$item->idProducto.')">Borrar</a>';
+                echo '</div>';
+                    }
+                ?>
+                 
             </div>
         </div>
 
@@ -167,7 +124,7 @@ catch (\Throwable $th) {
             <span>Precio:</span>
             <input type="text" name="precio" id="precio" placeholder="Precio del producto" required>
             <div class="modal-footer">
-                <button id="btnSubmit" name="btnSubmit" >Aceptar</button>
+                <button class="btnAgregarProducto" id="btnSubmit" name="btnSubmit" >Aceptar</button>
             </div>
 
             </form>
@@ -189,6 +146,7 @@ catch (\Throwable $th) {
     });
 
     function editarRegistro(idProducto){
+        document.getElementById('btnSubmit').style.display = 'block';
         const clave = document.getElementById("clave_"+idProducto);
         const nombre = document.getElementById("nombre_"+idProducto);
         const pres = document.getElementById("pres_"+idProducto);
@@ -202,5 +160,40 @@ catch (\Throwable $th) {
         modal.style.display = 'flex';
 
 
+    }
+
+    function verRegistro(idProducto){
+        const clave = document.getElementById("clave_"+idProducto);
+        const nombre = document.getElementById("nombre_"+idProducto);
+        const pres = document.getElementById("pres_"+idProducto);
+        const precio = document.getElementById("precio_"+idProducto);        
+
+        document.getElementById('clave').value = clave.innerHTML;
+        document.getElementById('nombre').value = nombre.innerHTML;
+        document.getElementById('presentacion').value = pres.innerHTML;
+        document.getElementById('precio').value = precio.innerHTML;
+        document.getElementById("idProducto").value = idProducto;
+        modal.style.display = 'flex';
+
+        document.getElementById('btnSubmit').style.display = 'none';
+
+    }
+
+    function borrarRegistro(idProducto){
+        const respuesta =  confirm('Esta seguro de eliminar el registro?');
+        if(respuesta){
+            let xhttp = new XMLHttpRequest();
+            xhttp.open("GET", "productos.component.php?request=d&idproducto=" +idProducto, false);
+            xhttp.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+            xhttp.onreadystatechange = function() {
+            if (this.readyState == 4 && this.status == 200) {
+
+                // Response
+                var response = this.responseText; 
+
+            }
+            };
+            xhttp.send();
+        }
     }
 </script>

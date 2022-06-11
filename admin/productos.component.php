@@ -8,12 +8,12 @@ use Producto as GlobalProducto;
 if($_SERVER['REQUEST_METHOD'] === 'POST'){
 
     //obtenemos las variables del request
-    $nombre =       $_POST['nombre'];
-    $clave =        $_POST['clave'];
-    $precio =       $_POST['precio'];
-    $idProducto =   $_POST['idProducto'];
-    $presentacion =   $_POST['presentacion'];
-    $formSubmit =   $_POST['btnSubmit'];
+    $nombre =       mysqli_real_escape_string(getConn(),$_POST['nombre']);
+    $clave =        mysqli_real_escape_string(getConn(),$_POST['clave']);
+    $precio =       mysqli_real_escape_string(getConn(),$_POST['precio']);
+    $idProducto =   mysqli_real_escape_string(getConn(),$_POST['idProducto']);
+    $presentacion = mysqli_real_escape_string(getConn(),$_POST['presentacion']);
+    $formSubmit =   mysqli_real_escape_string(getConn(),$_POST['btnSubmit']);
 
     function checkemail($str) {
         try {
@@ -41,6 +41,7 @@ if($_SERVER['REQUEST_METHOD'] === 'POST'){
         exit();
     }
 
+   
     if($idProducto == null || strlen($idProducto) === 0){
         //Es un insert
         $p = new Producto();
@@ -54,8 +55,33 @@ if($_SERVER['REQUEST_METHOD'] === 'POST'){
     }
     else{
         //editar registro
-
+        $p = new Producto();
+        $p->idProducto = $idProducto;
+        $p->nombre = $nombre;
+        $p->clave = $clave;
+        $p->precio = $precio;        
+        $p->presentacion = $presentacion;        
+        
+        actualizarProducto($p);
     }
+
+
+}
+else{
+
+    $parts = parse_url($url);
+    parse_str($parts['query'], $query);
+    $queryReq = $query['request'];
+
+    print_r($query);
+    if($queryReq === "d"){
+        //delete
+        $id = $query['idproducto'];
+        borrarProducto($id);
+    }
+    
+
+
 
 }
 
@@ -126,6 +152,46 @@ function agreagarProducto($producto){
         header('Location: ./productos.php?f=error');
         exit();
      }
+}
+
+function actualizarProducto($producto)
+{
+    $query = "UPDATE producto SET 
+        Clave = '$producto->clave', Nombre='$producto->nombre', Descripcion='$producto->descripcion',
+         Precio=$producto->precio, Presentacion='$producto->presentacion' WHERE idproducto = $producto->idproducto";
+   $conn = getConn();
+
+   $result =  $conn->query($query);
+
+   $conn->close();
+
+    if($result === true){
+       header('Location: ./productos.php?f=success');
+       exit();
+    }
+    else{
+       header('Location: ./productos.php?f=error');
+       exit();
+    }
+}
+
+function borrarProducto($idProducto){
+    $query = "UPDATE producto SET 
+        IdStatusProducto = 0  WHERE idproducto = $idProducto";
+   $conn = getConn();
+
+   $result =  $conn->query($query);
+
+   $conn->close();
+/*
+    if($result === true){
+       header('Location: ./productos.php?f=success');
+       exit();
+    }
+    else{
+       header('Location: ./productos.php?f=error');
+       exit();
+    }*/
 }
 
 ?>
