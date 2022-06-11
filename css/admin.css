@@ -110,7 +110,7 @@ a.cell-link{
     background-color: rgb(24, 172, 80);
     float: right;
     color: white;
-    cursor: pointer;
+    cursor: pointer; 
 }
 
 .btnAgregarProducto:hover, .btnAgregarProducto:focus{
