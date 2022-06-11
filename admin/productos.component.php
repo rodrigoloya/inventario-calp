@@ -68,18 +68,12 @@ if($_SERVER['REQUEST_METHOD'] === 'POST'){
 
 }
 else{
- 
-    
     $queryReq = $_GET['request'];
-    print($queryReq);
     if($queryReq === "d"){
         //delete
         $id = $_GET['idproducto'];
         borrarProducto($id);
     }
-    
-
-
 
 }
 
@@ -156,7 +150,8 @@ function actualizarProducto($producto)
 {
     $query = "UPDATE producto SET 
         Clave = '$producto->clave', Nombre='$producto->nombre', Descripcion='$producto->descripcion',
-         Precio=$producto->precio, Presentacion='$producto->presentacion' WHERE idproducto = $producto->idproducto";
+         Precio=$producto->precio, Presentacion='$producto->presentacion' WHERE IdProducto = $producto->idproducto";
+         print ($query);
    $conn = getConn();
 
    $result =  $conn->query($query);
@@ -164,18 +159,18 @@ function actualizarProducto($producto)
    $conn->close();
 
     if($result === true){
-       header('Location: ./productos.php?f=success');
+     #  header('Location: ./productos.php?f=success');
        exit();
     }
     else{
-       header('Location: ./productos.php?f=error');
+      # header('Location: ./productos.php?f=error');
        exit();
     }
 }
 
 function borrarProducto($idProducto){
     $query = "UPDATE producto SET 
-        IdStatusProducto = 0  WHERE idproducto = $idProducto";
+        IdStatusProducto = 2  WHERE idproducto = $idProducto";
    $conn = getConn();
 
    $result =  $conn->query($query);
