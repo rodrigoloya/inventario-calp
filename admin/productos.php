@@ -84,6 +84,7 @@ catch (\Throwable $th) {
 
                 <?php
                     $productos = getAllProductos();
+                    if(count($productos)> 0){
                     foreach ($productos as $item){
                 echo '<div id="clave_'.$item->idProducto.'" class="admin-producto-row">'.$item->clave.'</div>';
                 echo '<div id="nombre_'.$item->idProducto.'" class="admin-producto-row">'.$item->nombre.'</div>';
@@ -95,6 +96,11 @@ catch (\Throwable $th) {
                 echo '    <a href="#" class="cell-link" onclick="borrarRegistro('.$item->idProducto.')">Borrar</a>';
                 echo '</div>';
                     }
+                }
+                else
+                {
+                    echo '<div class="admin-producto-row">No existen registros</div>';
+                }
                 ?>
                  
             </div>
