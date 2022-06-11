@@ -68,18 +68,19 @@ if($_SERVER['REQUEST_METHOD'] === 'POST'){
 
 }
 else{
-/*
+ 
     $parts = parse_url($url);
     parse_str($parts['query'], $query);
     $queryReq = $query['request'];
 
     print_r($query);
+    print_r($queryReq);
     if($queryReq === "d"){
         //delete
         $id = $query['idproducto'];
         borrarProducto($id);
     }
-    */
+    
 
 
 
