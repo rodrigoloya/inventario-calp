@@ -31,7 +31,7 @@
 
 .tabla-admin-productos{
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
     column-gap: 15px;
 }
 

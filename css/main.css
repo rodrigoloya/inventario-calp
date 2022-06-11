@@ -348,6 +348,42 @@ article{
     animation-name: fade;
     animation-duration: 1.5s;
   }
+
+  .bg-modal{
+    align-items: center ;
+    background-color: rgba(0,0,0,0.7);
+    display:none;   
+    height: 100%;     
+    justify-content: center;  
+    position: absolute;
+    top: 0px;
+    width: 100%;
+    z-index: 1;
+  }
+
+  .modal-content{
+    width:600px;
+    height:300px;
+    background-color: white;
+    border:none; 
+    border-radius: 15px;
+    padding:15px;
+    position: relative;
+    display: grid;
+    }
+
+.modal-content input{
+    border: solid peachpuff;
+}
+
+.close{
+    position: absolute;
+    top:5px;
+    right: 10px;
+    font-size:25px;
+    transform: rotate(45deg);  
+    cursor: pointer;
+    }
   
   @keyframes fade {
     from {opacity: .4} 
