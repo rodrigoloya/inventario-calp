@@ -68,7 +68,7 @@ if($_SERVER['REQUEST_METHOD'] === 'POST'){
 
 }
 else{
-
+/*
     $parts = parse_url($url);
     parse_str($parts['query'], $query);
     $queryReq = $query['request'];
@@ -79,7 +79,7 @@ else{
         $id = $query['idproducto'];
         borrarProducto($id);
     }
-    
+    */
 
 
 

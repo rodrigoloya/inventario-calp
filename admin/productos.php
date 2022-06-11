@@ -90,7 +90,7 @@ catch (\Throwable $th) {
                 echo '<div id="pres_'.$item->idProducto.'" class="admin-producto-row">'.$item->presentacion.'</div>';
                 echo '<div id="precio_'.$item->idProducto.'" class="admin-producto-row right">'.$item->precio.'</div>';
                 echo '<div class="admin-producto-row">';
-                echo '    <a href="#" class="cell-link">Ver</a>';
+                echo '    <a href="#" class="cell-link" onclick="verRegistro('.$item->idProducto.')">Ver</a>';
                 echo '    <a href="#" class="cell-link" onclick="editarRegistro('.$item->idProducto.')">Editar</a>';
                 echo '    <a href="#" class="cell-link" onclick="borrarRegistro('.$item->idProducto.')">Borrar</a>';
                 echo '</div>';
