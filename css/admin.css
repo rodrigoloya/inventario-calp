@@ -117,3 +117,7 @@ a.cell-link{
     background-color: rgb(70, 230, 131);
 }
 
+.error-nom{
+    color: red;
+    font-size: x-small;
+}

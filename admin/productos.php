@@ -172,8 +172,9 @@ catch (\Throwable $th) {
             }
         }
 
-        const txtNombre = document.getElementById('precio');
+        const txtNombre = document.getElementById('nombre');
         txtNombre.onblur = (event) => {
+            console.log(txtNombre);
             if(txtNombre.value.length < 21){
                 document.querySelector('.error-nom').style.display = "inline";
             }
