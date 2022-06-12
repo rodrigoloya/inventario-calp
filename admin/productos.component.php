@@ -41,6 +41,9 @@ if($_SERVER['REQUEST_METHOD'] === 'POST'){
         exit();
     }
 
+    //Validar que el precio sea un numero decimal
+    $precio = filter_var($precio, FILTER_SANITIZE_NUMBER_FLOAT, FILTER_FLAG_ALLOW_FRACTION);
+
    
     if($idProducto == null || strlen($idProducto) === 0){
         //Es un insert

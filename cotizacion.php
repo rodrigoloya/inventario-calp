@@ -80,7 +80,7 @@ electrónico.
                         print ("<h3 class='success'>Envio del formulario fue exitoso.</h3>");
                     }
                     elseif($formStatus == "char"){
-                        print ("<h3 class='error'>El nombre debe contener al menos 3 letras</h3>");
+                        print ("<h3 class='error'>El nombre no admite caracteres especiales y debe contener al menos 3 letras</h3>");
                     }
                     elseif($formStatus == "email"){
                         print ("<h3 class='error'>El email es invalido, verifique.</h3>");

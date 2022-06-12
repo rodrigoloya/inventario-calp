@@ -1,9 +1,5 @@
 <?php
-
- 
-
     include_once '../includes/conexion.php';
-
 
     class Cotizacion{
 
@@ -15,11 +11,8 @@
         public $fechaAlta;
         public $fechaModificacion;
     
-    
         function __construct(){ }
-        
     }
-
 
     //Funcion que regresa un arreglo de tipo Cotizacion, con todos los elementos activos de la tabla cotizacion
 function getAllCotizaciones(){
@@ -57,8 +50,5 @@ function getAllCotizaciones(){
     //devolvemos el arreglo
     return $lstCotizacion;
 }
-
-
-
 
 ?>

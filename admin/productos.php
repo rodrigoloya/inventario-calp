@@ -50,16 +50,11 @@ try {
         }           
     
     }
-/*
-    $productos = getAllProductos();
-
-    echo "<pre>";
-      print_r($productos);*/
+ 
 } 
 catch (\Throwable $th) {
    print ($th);
 }
-  
     
 ?>
             <h2>Productos por Vender</h2>
@@ -125,6 +120,7 @@ catch (\Throwable $th) {
             <input type="text" name="clave" id="clave" placeholder="Clave del producto" required>
             <span>Nombre:</span>
             <input type="text" name="nombre" id="nombre" placeholder="Nombre del producto" required>
+            <span class="error-nom" style="display: none;">el nombre debe ser 20 caracteres como minimo</span>
             <span>Presentacion:</span>
             <input type="text" name="presentacion" id="presentacion" placeholder="Presentacion del producto" required>
             <span>Precio:</span>
@@ -141,24 +137,53 @@ catch (\Throwable $th) {
 </html>
 
 <script>
-    const openButton = document.getElementById('btnAgregarProducto');
-    const modal = document.querySelector('.bg-modal');
-    const closeBtn = document.querySelector('.close');
-    openButton.addEventListener('click', () => {
-        document.querySelector(".modal-header h3").innerHTML = "Agregar Producto"
+    window.onload = () => {
+        const openButton = document.getElementById('btnAgregarProducto');
+        const modal = document.querySelector('.bg-modal');
+        const closeBtn = document.querySelector('.close');
+        openButton.addEventListener('click', () => {
+            document.querySelector(".modal-header h3").innerHTML = "Agregar Producto"
 
-        document.getElementById('clave').value = '';
-        document.getElementById('nombre').value = '';
-        document.getElementById('presentacion').value ='';
-        document.getElementById('precio').value = '';
-        document.getElementById("idProducto").value = '';
+            document.getElementById('clave').value = '';
+            document.getElementById('nombre').value = '';
+            document.getElementById('presentacion').value ='';
+            document.getElementById('precio').value = '';
+            document.getElementById("idProducto").value = '';
 
 
-        modal.style.display = 'flex';
-    }); 
-    closeBtn.addEventListener('click', () => {
-        modal.style.display = 'none'
-    });
+            modal.style.display = 'flex';
+        }); 
+        closeBtn.addEventListener('click', () => {
+            modal.style.display = 'none'
+        });
+
+        //Validaciones
+        const txtPrecio = document.getElementById('precio');
+        txtPrecio.onkeyup = (event) => {
+            if(isNaN(Number(txtPrecio.value))){
+                alert("Precio no valido, verifique");
+                txtPrecio.value='';
+             }
+        }
+        txtPrecio.onblur = (event) => {
+            if(!isNaN(Number(txtPrecio.value))){
+                precio = Math.round(txtPrecio.value*1000);
+                txtPrecio.value = precio/1000;
+            }
+        }
+
+        const txtNombre = document.getElementById('precio');
+        txtNombre.onblur = (event) => {
+            if(txtNombre.value.length < 21){
+                document.querySelector('.error-nom').style.display = "inline";
+            }
+            else{
+                document.querySelector('.error-nom').style.display = "none";
+            }
+        }
+
+
+    }
 
     function editarRegistro(idProducto){
         document.getElementById('btnSubmit').style.display = 'block';
