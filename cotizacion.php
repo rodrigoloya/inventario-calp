@@ -7,6 +7,14 @@
     <meta name="viewport" content="width=900, initial-scale=1.0">
     <title>Negocio</title>
     <link rel="stylesheet" href="css/main.css">
+
+    <script > 
+        window.onload = ()=>{
+            //funcion para pasar la fecha del cliente al componente PHP
+            const fecha = document.getElementById("fecha").value = new Date().toISOString();
+             
+        }
+    </script>
 </head>
 
 <body>
@@ -102,6 +110,7 @@ electrónico.
                     <br>
                     <?php echo '<textarea name="solicitud" id="solicitud" cols="60" rows="6">'.$solicitud.'</textarea>' ?>
                     <br>
+                    <input type="hidden" name="fecha" id="fecha">
                     <button id="cancelar" type="reset">Cancelar</button>
                       
                     <button type="submit" name="enviar" id="enviar">Enviar Solicitud</button>

@@ -26,7 +26,9 @@ if($_SERVER['REQUEST_METHOD'] === 'POST'){
     $email =        $_POST['email'];
     $edad=          $_POST['edad'];
     $solicitud =    $_POST['solicitud'];
+    $fechaCliente =    $_POST['fecha'];
     $formSubmit =   $_POST['enviar'];
+
 
     function checkemail($str) {
         try {
@@ -67,7 +69,17 @@ if($_SERVER['REQUEST_METHOD'] === 'POST'){
         //Enviamos un attributo de success cuando paso todas las validaciones.
 
         //intetamos insertar en la base de datos
-        $date = date('Y-m-d H:i:s');
+       
+
+        try {
+            //verificamos que la fecha del cliente este en formato correcto de lo contrario insertamos la fecha del servidor
+            
+            //$date = date_create_from_format("m-d-Y", $fechaCliente)->format('Y-m-d H:i:s');
+            //$date = date('Y-m-d H:i:s', strtotime($fecha));
+            $date = $fecha;
+        } catch (\Throwable $th) {
+            $date = date('Y-m-d H:i:s');
+        }
 
         $c = new Cotizacion();
         $c->nombre      = $nombre ;
