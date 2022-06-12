@@ -120,7 +120,7 @@ catch (\Throwable $th) {
             <input type="text" name="clave" id="clave" placeholder="Clave del producto" required>
             <span>Nombre:</span>
             <input type="text" name="nombre" id="nombre" placeholder="Nombre del producto" required>
-            <span class="error-nom" style="display: none;">el nombre debe ser 20 caracteres como minimo</span>
+            <span class="error-nom" style="display: none;">El nombre debe tener un minimo de 20 caracteres y maximo de 50</span>
             <span>Presentacion:</span>
             <input type="text" name="presentacion" id="presentacion" placeholder="Presentacion del producto" required>
             <span>Precio:</span>
@@ -175,7 +175,7 @@ catch (\Throwable $th) {
         const txtNombre = document.getElementById('nombre');
         txtNombre.onblur = (event) => {
             console.log(txtNombre);
-            if(txtNombre.value.length < 21){
+            if(txtNombre.value.length < 20 || txtNombre.value.length > 50){
                 document.querySelector('.error-nom').style.display = "inline";
             }
             else{
