@@ -75,8 +75,8 @@ if($_SERVER['REQUEST_METHOD'] === 'POST'){
             //verificamos que la fecha del cliente este en formato correcto de lo contrario insertamos la fecha del servidor
             
             //$date = date_create_from_format("m-d-Y", $fechaCliente)->format('Y-m-d H:i:s');
-            //$date = date('Y-m-d H:i:s', strtotime($fechaCliente));
-            $date = $fechaCliente;
+            $date = date('Y-m-d H:i:s', strtotime($fechaCliente));
+            
         } catch (\Throwable $th) {
             $date = date('Y-m-d H:i:s');
         }
